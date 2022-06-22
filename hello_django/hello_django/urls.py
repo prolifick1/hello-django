@@ -19,13 +19,21 @@ from django.http import HttpResponse
 import math
 
 def rectArea(request, height, width):
-    return HttpResponse(f'<h1>{height * width}<h1>')
+    response = HttpResponse(f'<h1>{height * width}<h1>')
+    response.status_code = 400
+    return response;
 def rectPerimeter(request, height, width):
-    return HttpResponse(f'<h1>{2*height + 2*width}<h1>')
+    response = HttpResponse(f'<h1>{2*height + 2*width}<h1>')
+    response.status_code = 400
+    return response;
 def circArea(request, radius):
-    return HttpResponse(f'<h2>{round(math.pi*(radius)**2, 2)}</h2>')
+    response = HttpResponse(f'<h2>{round(math.pi*(radius)**2, 2)}</h2>')
+    response.status_code = 400
+    return response;
 def circPerimeter(request, radius):
-    return HttpResponse(f'<h2>{round(math.pi*2*radius, 2)}')
+    response = HttpResponse(f'<h2>{round(math.pi*2*radius, 2)}')
+    response.status_code = 400
+    return response;
 
 urlpatterns = [
     path('rectangle/area/<int:height>/<int:width>', rectArea), 
